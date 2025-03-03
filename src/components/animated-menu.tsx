@@ -4,7 +4,7 @@ import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
-import { Home, PenTool, Search } from "lucide-react"
+import { Home, PenTool, Search, Brain, Settings, User } from "lucide-react"
 import { useTheme } from "next-themes"
 
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -86,10 +86,24 @@ export function AnimatedMenu() {
       gradient: "radial-gradient(circle, rgba(249,115,22,0.15) 0%, rgba(234,88,12,0.06) 50%, rgba(194,65,12,0) 100%)",
       iconColor: "text-orange-500",
     },
+    {
+      icon: <Brain className="h-5 w-5" />,
+      label: "Digital Brain",
+      href: "/digital-brain",
+      gradient: "radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(124,58,237,0.06) 50%, rgba(109,40,217,0) 100%)",
+      iconColor: "text-purple-500",
+    },
+    {
+      icon: <Settings className="h-5 w-5" />,
+      label: "Projects",
+      href: "/projects",
+      gradient: "radial-gradient(circle, rgba(34,197,94,0.15) 0%, rgba(22,163,74,0.06) 50%, rgba(21,128,61,0) 100%)",
+      iconColor: "text-green-500",
+    },
   ];
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
+    <header className="sticky top-0 z-40 w-full border-b border-gray-200 bg-white/80 backdrop-blur-md dark:border-gray-800 dark:bg-gray-900/80">
       <div className="container flex h-16 items-center px-4 sm:px-8 lg:px-20">
         <div className="mr-4 flex">
           <Link href="/" className="flex items-center space-x-2">
@@ -128,64 +142,42 @@ export function AnimatedMenu() {
                         borderRadius: "16px",
                       }}
                     />
-                    <motion.div className="relative">
-                      <Link
-                        href={item.href}
-                        className={`flex items-center gap-2 px-4 py-2 relative z-10 bg-transparent transition-colors rounded-xl ${
-                          pathname === item.href
-                            ? "text-foreground"
-                            : "text-muted-foreground hover:text-foreground"
-                        }`}
-                        style={{ transformStyle: "preserve-3d", transformOrigin: "center bottom" }}
-                      >
-                        <motion.span 
-                          variants={itemVariants}
-                          transition={sharedTransition}
-                          className={`transition-colors duration-300 ${
-                            pathname === item.href ? item.iconColor : `group-hover:${item.iconColor}`
-                          }`}
-                        >
-                          {item.icon}
-                        </motion.span>
-                        <motion.span
-                          variants={itemVariants}
-                          transition={sharedTransition}
-                        >
-                          {item.label}
-                        </motion.span>
-                      </Link>
-                      <Link
-                        href={item.href}
-                        className={`flex items-center gap-2 px-4 py-2 absolute inset-0 z-10 bg-transparent transition-colors rounded-xl ${
-                          pathname === item.href
-                            ? "text-foreground"
-                            : "text-muted-foreground hover:text-foreground"
-                        }`}
-                        style={{ 
-                          transformStyle: "preserve-3d", 
-                          transformOrigin: "center top", 
-                          position: "absolute",
-                          top: 0,
-                          left: 0
-                        }}
-                      >
-                        <motion.span 
-                          variants={backVariants}
-                          transition={sharedTransition}
-                          className={`transition-colors duration-300 ${
-                            pathname === item.href ? item.iconColor : `group-hover:${item.iconColor}`
-                          }`}
-                        >
-                          {item.icon}
-                        </motion.span>
-                        <motion.span
-                          variants={backVariants}
-                          transition={sharedTransition}
-                        >
-                          {item.label}
-                        </motion.span>
-                      </Link>
-                    </motion.div>
+                    <motion.a
+                      href={item.href}
+                      className={`flex items-center gap-2 px-4 py-2 relative z-10 bg-transparent transition-colors rounded-xl ${
+                        pathname === item.href
+                          ? "text-foreground"
+                          : "text-muted-foreground hover:text-foreground"
+                      }`}
+                      variants={itemVariants}
+                      transition={sharedTransition}
+                      style={{ transformStyle: "preserve-3d", transformOrigin: "center bottom" }}
+                    >
+                      <span className={`transition-colors duration-300 ${
+                        pathname === item.href ? item.iconColor : `group-hover:${item.iconColor}`
+                      }`}>
+                        {item.icon}
+                      </span>
+                      <span>{item.label}</span>
+                    </motion.a>
+                    <motion.a
+                      href={item.href}
+                      className={`flex items-center gap-2 px-4 py-2 absolute inset-0 z-10 bg-transparent transition-colors rounded-xl ${
+                        pathname === item.href
+                          ? "text-foreground"
+                          : "text-muted-foreground hover:text-foreground"
+                      }`}
+                      variants={backVariants}
+                      transition={sharedTransition}
+                      style={{ transformStyle: "preserve-3d", transformOrigin: "center top", rotateX: 90 }}
+                    >
+                      <span className={`transition-colors duration-300 ${
+                        pathname === item.href ? item.iconColor : `group-hover:${item.iconColor}`
+                      }`}>
+                        {item.icon}
+                      </span>
+                      <span>{item.label}</span>
+                    </motion.a>
                   </motion.div>
                 </motion.li>
               ))}
