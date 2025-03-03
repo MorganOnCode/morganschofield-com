@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --color-primary: 59 130 246; /* blue-500 */
+    --color-primary-foreground: 255 255 255;
+    --color-ring: 59 130 246; /* blue-500 */
+    --color-input: 229 231 235; /* gray-200 */
+    --color-background: 255 255 255;
+    --color-foreground: 0 0 0;
+    --color-border: 229 231 235; /* gray-200 */
+    --color-muted: 229 231 235; /* gray-200 */
+    --color-muted-foreground: 107 114 128; /* gray-500 */
+  }
+
+  .dark {
+    --color-primary: 59 130 246; /* blue-500 */
+    --color-primary-foreground: 255 255 255;
+    --color-ring: 59 130 246; /* blue-500 */
+    --color-input: 55 65 81; /* gray-700 */
+    --color-background: 17 24 39; /* gray-900 */
+    --color-foreground: 255 255 255;
+    --color-border: 55 65 81; /* gray-700 */
+    --color-muted: 55 65 81; /* gray-700 */
+    --color-muted-foreground: 156 163 175; /* gray-400 */
+  }
+}
+
 /* Basic styles without using @apply */
 body {
   background-color: #ffffff;

@@ -3,7 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
-import { Navigation } from "@/components/navigation";
+// import { Navigation } from "@/components/navigation";
+import { AnimatedMenu } from "@/components/animated-menu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,7 +27,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navigation />
+          <AnimatedMenu />
           <main className="min-h-screen">{children}</main>
         </ThemeProvider>
       </body>
