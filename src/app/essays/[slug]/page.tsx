@@ -2,16 +2,19 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { essays } from "@/data/essays";
 
-interface EssayPageProps {
-  params: {
-    slug: string;
-  };
-  searchParams?: Record<string, string | string[] | undefined>;
-}
+// Define the params type separately
+type Params = {
+  slug: string;
+};
 
-export function generateMetadata({
-  params,
-}: EssayPageProps): Metadata {
+// Define the props type for the page component
+type Props = {
+  params: Params;
+  searchParams: Record<string, string | string[] | undefined>;
+};
+
+// Generate metadata for the page
+export function generateMetadata({ params }: Props): Metadata {
   const essay = essays.find((essay) => essay.slug === params.slug);
 
   if (!essay) {
@@ -26,13 +29,15 @@ export function generateMetadata({
   };
 }
 
-export function generateStaticParams() {
+// Generate static params for all essays
+export function generateStaticParams(): Params[] {
   return essays.map((essay) => ({
     slug: essay.slug,
   }));
 }
 
-export default function EssayPage({ params }: EssayPageProps) {
+// The page component
+export default function EssayPage({ params }: Props) {
   const essay = essays.find((essay) => essay.slug === params.slug);
 
   if (!essay) {
