@@ -11,10 +11,10 @@ export default function EmotionWheelContent() {
   }
 
   return (
-    <div className="container px-4 py-12 sm:px-8 lg:px-20">
-      <div className="mx-auto max-w-5xl text-center">
+    <div className="w-full max-w-7xl mx-auto px-4 py-12 sm:px-8 lg:px-20">
+      <div className="flex flex-col items-center text-center">
         {/* 1. EmotionWheel component */}
-        <div className="flex justify-center mb-8">
+        <div className="w-full flex justify-center mb-8">
           <EmotionWheel onEmotionSelect={handleEmotionSelect} />
         </div>
         
@@ -22,14 +22,14 @@ export default function EmotionWheelContent() {
         <h1 className="mb-4 text-4xl font-bold">Wheel of Emotions</h1>
         
         {/* 3. Description */}
-        <p className="mb-8 text-lg text-gray-600 dark:text-gray-400 mx-auto max-w-3xl">
+        <p className="mb-8 text-lg text-gray-600 dark:text-gray-400 max-w-3xl">
           This interactive wheel of emotions helps you identify and understand different emotions and their relationships.
           Click on any emotion to select it and explore the spectrum of human feelings.
         </p>
         
         {/* 4. H3 that updates on click */}
         {selectedEmotion && (
-          <h3 className="text-2xl font-semibold mt-4 text-center">{selectedEmotion}</h3>
+          <h3 className="text-2xl font-semibold mt-4">{selectedEmotion}</h3>
         )}
       </div>
     </div>

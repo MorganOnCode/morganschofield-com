@@ -7,5 +7,9 @@ export const metadata: Metadata = {
 }
 
 export default function EmotionWheelPage() {
-  return <EmotionWheelContent />
+  return (
+    <div className="flex justify-center items-center w-full">
+      <EmotionWheelContent />
+    </div>
+  )
 } 
