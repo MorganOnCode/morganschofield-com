@@ -1,10 +1,9 @@
 "use client"
 
 import * as React from "react"
-import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
-import { Home, PenTool, Search, Brain, Settings, User } from "lucide-react"
+import { Home, PenTool, Search, Brain, Settings } from "lucide-react"
 import { useTheme } from "next-themes"
 
 import { ThemeToggle } from "@/components/theme-toggle"
