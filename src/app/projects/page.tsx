@@ -16,13 +16,19 @@ export default function ProjectsPage() {
       title: "Personal Website",
       description: "My personal website built with Next.js and Tailwind CSS",
       tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
-      link: "https://github.com/yourusername/personal-website",
+      link: "https://github.com/MorganOnCode/morganschofield-com",
     },
     {
       title: "Digital Brain",
       description: "A digital garden of my thoughts and notes",
       tags: ["Next.js", "MDX", "Knowledge Management"],
       link: "/digital-brain",
+    },
+    {
+      title: "Wheel of Emotions",
+      description: "An interactive wheel to explore different emotions and their relationships",
+      tags: ["React", "SVG", "Interactive", "Psychology"],
+      link: "/emotion-wheel",
     },
     // Add more projects as needed
   ];
