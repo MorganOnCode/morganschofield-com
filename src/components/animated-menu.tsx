@@ -87,6 +87,13 @@ export function AnimatedMenu() {
       iconColor: "text-orange-500",
     },
     {
+      icon: <Search className="h-5 w-5" />,
+      label: "Search ⌘K",
+      href: "#",
+      gradient: "radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(124,58,237,0.06) 50%, rgba(109,40,217,0) 100%)",
+      iconColor: "text-purple-500",
+    },
+    {
       icon: <Brain className="h-5 w-5" />,
       label: "Digital Brain",
       href: "/digital-brain",
@@ -105,11 +112,6 @@ export function AnimatedMenu() {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-gray-200 bg-white/80 backdrop-blur-md dark:border-gray-800 dark:bg-gray-900/80">
       <div className="container flex h-16 items-center px-4 sm:px-8 lg:px-20">
-        <div className="mr-4 flex">
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-xl font-bold">Morgan Schofield</span>
-          </Link>
-        </div>
         <div className="flex flex-1 items-center justify-end space-x-4">
           <motion.nav
             className="p-2 rounded-2xl bg-gradient-to-b from-background/80 to-background/40 backdrop-blur-lg border border-border/40 shadow-lg relative overflow-hidden"
@@ -152,6 +154,12 @@ export function AnimatedMenu() {
                       variants={itemVariants}
                       transition={sharedTransition}
                       style={{ transformStyle: "preserve-3d", transformOrigin: "center bottom" }}
+                      onClick={(e) => {
+                        if (item.label === "Search ⌘K") {
+                          e.preventDefault();
+                          setShowCommandMenu(true);
+                        }
+                      }}
                     >
                       <span className={`transition-colors duration-300 ${
                         pathname === item.href ? item.iconColor : `group-hover:${item.iconColor}`
@@ -170,6 +178,12 @@ export function AnimatedMenu() {
                       variants={backVariants}
                       transition={sharedTransition}
                       style={{ transformStyle: "preserve-3d", transformOrigin: "center top", rotateX: 90 }}
+                      onClick={(e) => {
+                        if (item.label === "Search ⌘K") {
+                          e.preventDefault();
+                          setShowCommandMenu(true);
+                        }
+                      }}
                     >
                       <span className={`transition-colors duration-300 ${
                         pathname === item.href ? item.iconColor : `group-hover:${item.iconColor}`
@@ -183,17 +197,6 @@ export function AnimatedMenu() {
               ))}
             </ul>
           </motion.nav>
-          
-          <button
-            onClick={() => setShowCommandMenu(true)}
-            className="flex items-center px-3 py-2 text-sm font-medium text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
-          >
-            <Search className="mr-1 h-4 w-4" />
-            <span className="hidden sm:inline-block">Search</span>
-            <kbd className="ml-2 hidden rounded border border-gray-200 px-1.5 py-0.5 text-xs font-light text-gray-500 dark:border-gray-800 dark:text-gray-400 sm:inline-block">
-              ⌘K
-            </kbd>
-          </button>
           
           <ThemeToggle />
         </div>

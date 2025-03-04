@@ -52,9 +52,9 @@ export default function Home() {
         {/* Right Column */}
         <div className="flex flex-col space-y-8">
           <div>
-            <h2 className="mb-4 text-2xl font-bold">Currently building</h2>
+            <h2 className="mb-4 text-2xl font-bold">Me, Now</h2>
             <p className="text-gray-600 dark:text-gray-400">
-              Emotional intelligence.
+              Developing emotional intelligence.
             </p>
           </div>
 
