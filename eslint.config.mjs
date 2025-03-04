@@ -10,7 +10,14 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  // Explicitly include the Next.js ESLint plugin configuration
+  {
+    plugins: ["@next/eslint-plugin-next"],
+    extends: [
+      "plugin:@next/next/recommended",
+      "next/core-web-vitals"
+    ]
+  },
   {
     rules: {
       "react/no-unescaped-entities": "off",
