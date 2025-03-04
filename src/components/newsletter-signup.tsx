@@ -32,7 +32,8 @@ export function NewsletterSignup() {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       setIsSuccess(true);
       setEmail("");
-    } catch (err) {
+    } catch (error) {
+      console.error("Error submitting newsletter signup:", error);
       setError("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
